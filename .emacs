@@ -9,7 +9,6 @@
  '(global-font-lock-mode t nil (font-lock))
  '(hscroll-step 10)
  '(next-line-add-newlines nil)
- '(nxml-slash-auto-complete-flag t)
  '(rmail-enable-mime (quote ask) t)
  '(rmail-preserve-inbox t)
  '(rmail-secondary-file-directory "~/Mail" t)
@@ -75,11 +74,6 @@
 (autoload 'xsl-mode "xslide" "Major mode for XSL stylesheets." t)
 ;; CSS mode
 (autoload 'css-mode "css-mode" "Major mode for cascading stylesheets." t)
-;; for nxml mode
-(autoload 'nxml-mode "nxml" "Major mode to edit XML files." t)
-;; trying to get nxml mode happy on my mac
-;; order is important-- must occur after (autoload 'nxml-mode ...
-(load-file "/Applications/Emacs.app/Contents/Resources/site-lisp/nxml/nxml-mode-20041004/rng-auto.el")
 
 ;; Turn on font lock when in XSL mode
 (add-hook 'xsl-mode-hook
@@ -96,9 +90,6 @@
                 ("\\.ASP$"  . html-mode)
                 ("\\.jsp$"  . html-mode)
                 ("\\.JSP$"  . html-mode)
-                ("\\.xsd$"  . nxml-mode)
-                ("\\.xml$"  . nxml-mode)
-                ("\\.xsl$"  . nxml-mode)
 								("\\.css$"  . css-mode)
 								("\\.pks$"  . sql-mode)
                 ) auto-mode-alist))
@@ -107,11 +98,7 @@
 (add-hook 'java-mode-hook
 	  (function
        (lambda ()
-	 (c-set-style "kirby")
-	 (make-local-variable 'compile-command)
-	 (setq compile-command
-	       (concat "jikes "
-		       (buffer-file-name))))))
+				 (c-set-style "kirby"))))
 
 ;; change annoying scrolling pattern where emacs would move the cursor and
 ;; then center it annoyingly-- not what I wanted.
@@ -321,12 +308,7 @@ sure before exiting the editor."
  '(font-lock-string-face ((((class color) (background dark)) (:foreground "steelblue1"))))
  '(font-lock-type-face ((((class color) (background dark)) (:foreground "plum"))))
  '(font-lock-variable-name-face ((((class color) (background dark)) (:foreground "orange"))))
- '(font-lock-warning-face ((((class color) (background dark)) (:bold t :foreground "Yellow"))))
- '(nxml-attribute-local-name-face ((t (:foreground "plum"))))
- '(nxml-attribute-prefix-face ((t (:foreground "cadetblue"))))
- '(nxml-attribute-value-face ((t (:foreground "steelblue1"))))
- '(nxml-element-local-name-face ((t (:foreground "tomato1"))))
- '(nxml-element-prefix-face ((t (:foreground "cadetblue")))))
+ '(font-lock-warning-face ((((class color) (background dark)) (:bold t :foreground "Yellow")))))
 
 
 ;; i need to live in a unix world with my windoze emacs
