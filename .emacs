@@ -1,4 +1,3 @@
-; autenerated by M-x customize
 (custom-set-variables
   ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
   ;; Your init file should contain only one such instance.
@@ -29,6 +28,9 @@
 (set-face-font 'bold bold)
 (set-face-font 'bold-italic bold)
 (set-face-font 'font-lock-keyword-face bold)
+
+;; spaces over tabs.
+(setq-default indent-tabs-mode nil)
 
 (c-add-style 
 "kirby" 
@@ -106,6 +108,9 @@
 
 ;; change annoying truncation of lines
 (setq truncate-partial-width-windows nil)
+
+;; quiet, please.
+(setq ring-bell-function (lambda nil))
 
 (setq c++-mode-hook 'turn-on-auto-fill)
 (setq c-mode-hook 'turn-on-auto-fill)
@@ -309,7 +314,6 @@ sure before exiting the editor."
  '(font-lock-type-face ((((class color) (background dark)) (:foreground "plum"))))
  '(font-lock-variable-name-face ((((class color) (background dark)) (:foreground "orange"))))
  '(font-lock-warning-face ((((class color) (background dark)) (:bold t :foreground "Yellow")))))
-
 
 ;; i need to live in a unix world with my windoze emacs
 ;; Chris Weikart <chris@weikart.com> contributed the following code snippet from his .emacs file: 
