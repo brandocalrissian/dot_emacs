@@ -77,23 +77,22 @@
 ;; CSS mode
 (autoload 'css-mode "css-mode" "Major mode for cascading stylesheets." t)
 
+(require 'web-mode)
+
 ;; Turn on font lock when in XSL mode
 (add-hook 'xsl-mode-hook
 	  'turn-on-font-lock)
 
 ;; to map some more common file extensions to html mode
 (setq auto-mode-alist
-      (append '(("\\.html$"  . html-mode)
-                ("\\.shtml$"  . html-mode)
-                ("\\.jhtml$"  . html-mode)
-                ("\\.htm$"  . html-mode)
-                ("\\.HTM$"  . html-mode)
-                ("\\.asp$"  . html-mode)
-                ("\\.ASP$"  . html-mode)
-                ("\\.jsp$"  . html-mode)
-                ("\\.JSP$"  . html-mode)
-								("\\.css$"  . css-mode)
+      (append '(("\\.html$"  . web-mode)
+                ("\\.htm$"  . web-mode)
+                ("\\.HTM$"  . web-mode)
+                ("\\.jsp$"  . web-mode)
+                ("\\.JSP$"  . web-mode)
+								("\\.css$"  . web-mode)
 								("\\.pks$"  . sql-mode)
+                ("\\.jsx$'" . web-mode)
                 ) auto-mode-alist))
 
 ;;change the compile command for java-mode
@@ -119,6 +118,15 @@
 	  (function
 	   (lambda ()
 	     (auto-fill-mode 1))))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+)
+
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (setq text-mode-hook 'turn-on-auto-fill)
 (setq VC-Log-mode-hook 'turn-on-auto-fill)
