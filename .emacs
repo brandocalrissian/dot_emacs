@@ -72,27 +72,18 @@
 ;; for new psgml mode for sgml and xml docs
 (autoload 'sgml-mode "psgml" "Major mode to edit SGML files." t)
 (autoload 'xml-mode "psgml" "Major mode to edit XML files." t)
-;; XSL mode
-(autoload 'xsl-mode "xslide" "Major mode for XSL stylesheets." t)
-;; CSS mode
-(autoload 'css-mode "css-mode" "Major mode for cascading stylesheets." t)
 
 (require 'web-mode)
 
-;; Turn on font lock when in XSL mode
-(add-hook 'xsl-mode-hook
-	  'turn-on-font-lock)
-
 ;; to map some more common file extensions to html mode
 (setq auto-mode-alist
-      (append '(("\\.html$"  . web-mode)
+      (append '(("\\.html$" . web-mode)
                 ("\\.htm$"  . web-mode)
                 ("\\.HTM$"  . web-mode)
                 ("\\.jsp$"  . web-mode)
                 ("\\.JSP$"  . web-mode)
+                ("\\.jsx$"  . web-mode)
 								("\\.css$"  . web-mode)
-								("\\.pks$"  . sql-mode)
-                ("\\.jsx$'" . web-mode)
                 ) auto-mode-alist))
 
 ;;change the compile command for java-mode
@@ -322,40 +313,4 @@ sure before exiting the editor."
  '(font-lock-type-face ((((class color) (background dark)) (:foreground "plum"))))
  '(font-lock-variable-name-face ((((class color) (background dark)) (:foreground "orange"))))
  '(font-lock-warning-face ((((class color) (background dark)) (:bold t :foreground "Yellow")))))
-
-;; i need to live in a unix world with my windoze emacs
-;; Chris Weikart <chris@weikart.com> contributed the following code snippet from his .emacs file: 
-
-;;  (defun set-buffer-file-eol-type (eol-type)
-;;    "Set the file end-of-line conversion type of the current buffer to
-;;  EOL-TYPE.
-;;  This means that when you save the buffer, line endings will be converted
-;;  according to EOL-TYPE.
-
-;;  EOL-TYPE is one of three symbols:
-
-;;    unix (LF)
-;;    dos (CRLF)
-;;    mac (CR)
-
-;;  This function marks the buffer modified so that the succeeding
-;;  \\[save-buffer]
-;;  surely saves the buffer with EOL-TYPE.  From a program, if you don't want
-;;  to mark the buffer modified, use coding-system-change-eol-conversion
-;;  directly [weikart]."
-;;    (interactive "SEOL type for visited file (unix, dos, or mac): ")
-;;    (setq buffer-file-coding-system (coding-system-change-eol-conversion
-;;                       buffer-file-coding-system eol-type))
-;;    (set-buffer-modified-p t)
-;;    (force-mode-line-update))
-
-;;  (global-set-key "\^Cu" (lambda () (interactive) (set-buffer-file-eol-type 'unix)))
-;;  (global-set-key "\^Cd" (lambda () (interactive) (set-buffer-file-eol-type 'dos)))
-;;  (global-set-key "\^Cm" (lambda () (interactive) (set-buffer-file-eol-type 'mac)))
-
-;;  ;; Make the mode-line display the standard EOL-TYPE symbols (used above)...
-;; (setq eol-mnemonic-undecided "(?)"  ;; unknown EOL type
-;;        eol-mnemonic-unix  "(unix)" ;; LF
-;;        eol-mnemonic-dos  "(dos)"  ;; CRLF
-;;        eol-mnemonic-mac  "(mac)") ;; CR
 
