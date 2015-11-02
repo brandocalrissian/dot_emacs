@@ -84,6 +84,7 @@
                 ("\\.JSP$"  . web-mode)
                 ("\\.jsx$"  . web-mode)
 								("\\.css$"  . web-mode)
+                ("\\.js$"   . web-mode)
                 ) auto-mode-alist))
 
 ;;change the compile command for java-mode
