@@ -8,12 +8,8 @@
  '(global-font-lock-mode t nil (font-lock))
  '(hscroll-step 10)
  '(next-line-add-newlines nil)
- '(rmail-enable-mime (quote ask) t)
- '(rmail-preserve-inbox t)
- '(rmail-secondary-file-directory "~/Mail" t)
  '(scroll-bar-mode (quote right))
  '(tab-width 2)
- '(user-mail-address "brandon@escapepod.com")
  '(vc-delete-logbuf-window nil))
 ; end of customize...
 
@@ -84,6 +80,7 @@
                 ("\\.JSP$"  . web-mode)
                 ("\\.jsx$"  . web-mode)
                 ("\\.css$"  . web-mode)
+                ("\\.scss$"  . web-mode)
                 ("\\.js$"   . web-mode)
                 ("\\.json$"   . web-mode)
                 ) auto-mode-alist))
@@ -171,13 +168,6 @@
 (global-set-key "\M-w" 'forward-word) ; down
 
 
-;; For RCS stuff...
-;; imitation check out and check in...
-(global-set-key "\C-ci" 'vc-next-action)
-(global-set-key "\C-co" 'vc-next-action)
-
-
-
 ;; Reasonable f-key bindings
 (global-set-key [f21] 'scroll-down-in-place)    ; R1
 (global-set-key [f22] 'next-error)              ; R2
@@ -225,12 +215,10 @@
 (setq default-major-mode 'text-mode)
 (setq default-minor-mode 'auto-fill)
 
-;; (display-time) ;; i don't need this. I need the space.
 ;; save myself from the horror of set-fill-column...
 (global-unset-key "\C-xf")
 
-;; compile command
-(setq compile-command "make ")
+(toggle-frame-maximized)
 
 ;;benjy's delete whitespace function. --BK 11/95
 (defun brandons-function ()
@@ -279,18 +267,6 @@ sure before exiting the editor."
 (global-set-key (quote [home]) 'beginning-of-buffer)
 (global-set-key (quote [end]) 'end-of-buffer)
 
-;; my new kick-ass laptop can display emacs 266 columns wide, so I'm
-;; getting accustomed to three-columns of buffers instead of the
-;; customary two. Exciting.
-(defun wide-ass-screen-split()
-  "You have 260+ columns you want to split in three..."
-  (interactive)
-  (split-window-horizontally 90))
-
-(global-set-key "\C-x#" (quote wide-ass-screen-split))
-
-
-;;my jump up/down by some amount-- ten lines now. --bk
 (defun jump-forward-lines()
   " This function will move the cursor forward some lines (currently 10)."
   (interactive)
