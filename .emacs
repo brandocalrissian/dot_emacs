@@ -1,12 +1,16 @@
 (custom-set-variables
-  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-insert-mode t nil (autoinsert))
  '(compilation-window-height 12)
  '(delete-selection-mode nil nil (delsel))
  '(font-lock-maximum-decoration t)
  '(global-font-lock-mode t nil (font-lock))
  '(hscroll-step 10)
+ '(js-indent-level 2)
+ '(js2-basic-offset 2)
  '(next-line-add-newlines nil)
  '(scroll-bar-mode (quote right))
  '(tab-width 2)
@@ -81,7 +85,7 @@
                 ("\\.jsx$"  . web-mode)
                 ("\\.css$"  . web-mode)
                 ("\\.scss$"  . web-mode)
-                ("\\.js$"   . web-mode)
+                ("\\.js$"   . js2-mode)
                 ("\\.json$"   . web-mode)
                 ) auto-mode-alist))
 
@@ -280,8 +284,10 @@ sure before exiting the editor."
 (global-set-key (quote [M-up]) (quote jump-back-lines))
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(font-lock-builtin-face ((((class color) (background dark)) (:foreground "cadetblue"))))
  '(font-lock-comment-face ((((class color) (background dark)) (:foreground "SpringGreen"))))
  '(font-lock-function-name-face ((((class color) (background dark)) (:foreground "turquoise"))))
