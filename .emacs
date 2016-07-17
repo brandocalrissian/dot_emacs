@@ -89,6 +89,13 @@
                 ("\\.json$"   . web-mode)
                 ) auto-mode-alist))
 
+(defun override-js2-keys()
+  "stop some things I hate"
+  (interactive)
+  (local-unset-key "\M-j"))
+
+(add-hook 'js2-mode-hook 'override-js2-keys)
+
 ;;change the compile command for java-mode
 (add-hook 'java-mode-hook
 	  (function
