@@ -85,7 +85,7 @@
                 ("\\.jsx$"  . web-mode)
                 ("\\.css$"  . web-mode)
                 ("\\.scss$"  . web-mode)
-                ("\\.js$"   . js2-mode)
+                ("\\.js$"   . js2-jsx-mode)
                 ("\\.json$"   . web-mode)
                 ) auto-mode-alist))
 
